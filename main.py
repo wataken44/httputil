@@ -25,11 +25,17 @@ class IndexPage(webapp.RequestHandler):
 </html>
 """ % host)
 
+    def head(self):
+        pass
+
 class IPPage(webapp.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/plain'
         addr = os.environ['REMOTE_ADDR']
         self.response.out.write(addr)
+
+    def head(self):
+        pass
 
 def main():
     application = webapp.WSGIApplication(
