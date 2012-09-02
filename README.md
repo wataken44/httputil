@@ -9,7 +9,7 @@
 ## Sample
 
     $ ruby -r'open-uri' -e 'p open("http://u.w5n.org/ip").read()'
-    125.198.79.25
+    "125.198.79.25"
 
 ## License
 
