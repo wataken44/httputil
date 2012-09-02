@@ -31,6 +31,7 @@ class IndexPage(webapp.RequestHandler):
 class IPPage(webapp.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/plain'
+        self.response.headers['Access-Control-Allow-Origin'] = '*'
         addr = os.environ['REMOTE_ADDR']
         self.response.out.write(addr)
 
