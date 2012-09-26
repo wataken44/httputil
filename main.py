@@ -6,12 +6,10 @@ IP(REMOTE_ADDR) viewer on Google App Engine
 
 """
 
-from google.appengine.ext import webapp
-from google.appengine.ext.webapp.util import run_wsgi_app
-
+import webapp2
 import os
 
-class IndexPage(webapp.RequestHandler):
+class IndexPage(webapp2.RequestHandler):
     def get(self):
         host = os.environ['HTTP_HOST']
         self.response.out.write("""
@@ -28,7 +26,7 @@ class IndexPage(webapp.RequestHandler):
     def head(self):
         pass
 
-class IPPage(webapp.RequestHandler):
+class IPPage(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/plain'
         self.response.headers['Access-Control-Allow-Origin'] = '*'
@@ -38,12 +36,10 @@ class IPPage(webapp.RequestHandler):
     def head(self):
         pass
 
-def main():
-    application = webapp.WSGIApplication(
-        [('/', IndexPage),
-         ('/ip', IPPage)]
-        )
-    run_wsgi_app(application)
+application = webapp2.WSGIApplication(
+    [('/', IndexPage),
+     ('/ip', IPPage)]
+    )
 
 if __name__ == "__main__":
     main()
