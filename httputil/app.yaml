@@ -1,9 +1,5 @@
-application: httputil
-version: 2
-runtime: python27
-api_version: 1
-threadsafe: true
+runtime: python311
 
 handlers:
 - url: /.*
-  script: main.application
+  script: auto

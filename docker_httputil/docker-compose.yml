@@ -6,5 +6,6 @@ services:
     container_name: httputil
     ports:
       - "50036:22"
+      - "50037:8080"
     environment:
       - TZ=Asiz/Tokyo
