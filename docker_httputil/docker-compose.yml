@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  httputil:
+    build:
+      context: httputil
+    container_name: httputil
+    ports:
+      - "50036:22"
+    environment:
+      - TZ=Asiz/Tokyo
